@@ -1,0 +1,35 @@
+*{
+  font-family: 'Times New Roman', Times, serif;
+}
+body{
+  background-image: url(https://i.gifer.com/4SBj.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* background-color: rgba(0, 0, 0, 0.438); */
+}
+.calculator{
+  margin: 0 20%;
+  background-color:  rgba(0, 0, 0, 0.486);
+  backdrop-filter: blur(10px)
+}
+.positive {
+  color: green;
+}
+.negative {
+  color: red;
+}
+.instruction{
+  color: rgb(190, 190, 161);
+}
+
+@media (min-width:600px) {
+  h1{
+    font-size: 50px;
+  }
+}
+@media (max-width:600px) {
+  h1{
+    font-size: 30px;
+  }
+}
