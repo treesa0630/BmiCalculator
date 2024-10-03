@@ -2,6 +2,7 @@
   font-family: 'Times New Roman', Times, serif;
 }
 .mainbody{
+  
   background-image: url(https://i.gifer.com/4SBj.gif);
   background-repeat: no-repeat;
   background-size: cover;
@@ -9,7 +10,9 @@
   /* background-color: rgba(0, 0, 0, 0.438); */
 }
 .calculator{
-  margin: 0 20%;
+  margin-left:20%;
+  margin-right: 20%;
+  margin-bottom: 16%;
   background-color:  rgba(0, 0, 0, 0.486);
   backdrop-filter: blur(10px)
 }
