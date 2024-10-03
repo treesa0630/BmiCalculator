@@ -87,7 +87,7 @@ function App() {
   return (
     <>
       <div className='mainbody'>
-        <div style={{width: '100%', backgroundColor: 'rgba(0, 0, 0, 0.705)', padding: '0px' }}>
+        <div style={{height:'100vh',width: '100%', backgroundColor: 'rgba(0, 0, 0, 0.705)', padding: '0px' }}>
           <h1 className='text-light text-center pt-5'>Calculate Your<span style={{ color: 'lightyellow' }}> BMI</span></h1>
           <div className='mt-5 pt-md-5 d-flex align-items-center justify-content-center'>
             <div className='calculator row w-100  rounded-5 ' >
