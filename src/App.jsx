@@ -7,6 +7,11 @@ import { GaugeComponent } from 'react-gauge-component';
 
 function App() {
 
+  const [BMI, setBMI] = React.useState(0)
+  const [condition, setCondition] = React.useState("")
+  const [instruction, setInstruction] = React.useState("")
+  const [isPositive, setIsPositive] = React.useState(true)
+
   const reset = () => {
     setWeight(0)
     setHeight(0)
@@ -15,74 +20,66 @@ function App() {
     setInstruction("")
   }
 
+    // Weight
+    const [weight, setWeight] = React.useState(0);
+    const handleSliderChange = (event, newValue) => {
+      setWeight(newValue);
+    };
+    const handleInputChange = (event) => {
+      setWeight(event.target.value === '' ? 0 : Number(event.target.value));
+    };
+    const handleBlur = () => {
+      if (weight < 0) {
+        setWeight(0);
+      } else if (value > 150) {
+        setWeight(150);
+      }
+    };
+  
+  
+    // Height
+    const [height, setHeight] = React.useState(0);
+    const handleHeightChange = (event, newValue) => {
+      setHeight(newValue);
+    };
+    const handleHeightInputChange = (event) => {
+      setHeight(event.target.value === '' ? 0 : Number(event.target.value));
+    };
+    const handleHeightBlur = () => {
+      if (height < 0) {
+        setHeight(0);
+      } else if (height > 200) {
+        setHeight(200);
+      }
+    };
+
   const calculate = () => {
     let result = ((weight / (height / 100) ** 2).toFixed(1))
     setBMI(result)
 
     if (result <= 18.5) {
 
-      setCondition('UNDERWEIGHT');
+      setCondition('UNDERWEIGHT ');
       setIsPositive(false)
       setInstruction('"Maintain balanced diet, exercise regularly, consult a doctor."');
     }
     else if (result >= 18.5 && result < 24.9) {
-      setCondition('HEALTHY !')
+      setCondition('HEALTHY ')
       setIsPositive(true)
       setInstruction('"Balanced body, thriving health always!"');
     }
     else if (result >= 25.0 && result < 39.9) {
-      setCondition('OVERWEIGHT');
+      setCondition('OVERWEIGHT ');
       setIsPositive(false)
       setInstruction('"Focus on balanced diet, regular exercise, hydration, and consult a healthcare professional for guidance."');
     }
     else {
-      setCondition("OBESE !");
+      setCondition('OBESE ');
       setIsPositive(false)
       setInstruction('Consult healthcare provider for personalized weight management plan.');
 
     }
   }
-
-  const [BMI, setBMI] = React.useState(0)
-  const [condition, setCondition] = React.useState("")
-  const [instruction, setInstruction] = React.useState("")
-  const [isPositive, setIsPositive] = React.useState(true)
-
-  // Weight
-  const [weight, setWeight] = React.useState(0);
-  const handleSliderChange = (event, newValue) => {
-    setWeight(newValue);
-  };
-  const handleInputChange = (event) => {
-    setWeight(event.target.value === '' ? 0 : Number(event.target.value));
-  };
-  const handleBlur = () => {
-    if (weight < 0) {
-      setWeight(0);
-    } else if (value > 150) {
-      setWeight(150);
-    }
-  };
-
-
-  // Height
-  const [height, setHeight] = React.useState(0);
-  const handleHeightChange = (event, newValue) => {
-    setHeight(newValue);
-  };
-  const handleHeightInputChange = (event) => {
-    setHeight(event.target.value === '' ? 0 : Number(event.target.value));
-  };
-  const handleHeightBlur = () => {
-    if (height < 0) {
-      setHeight(0);
-    } else if (height > 200) {
-      setHeight(200);
-    }
-  };
-
-
-
 
   return (
     <>
@@ -174,7 +171,7 @@ function App() {
                   type="semicircle"
                   labels={{
                     valueLabel: {
-                      formatTextValue: (value) => `${BMI}`}
+                      formatTextValue: (value) =>`${BMI}`}
                   }}
                   arc={{
                     colorArray: ['#00FF15', '#FF2121'],
@@ -192,7 +189,6 @@ function App() {
                   }}
                   pointer={{ type: "arrow", animationDelay: 0 }}
                   value={BMI}
-                  valueFormatter={(value) => BMI.toString()}
                 />
               </div>
               <div className="col-md-1"></div>
