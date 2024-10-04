@@ -1,11 +1,12 @@
 *{
   font-family: 'Times New Roman', Times, serif;
 }
-.mainbody{
+body{
   background-image: url(https://i.gifer.com/4SBj.gif);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   /* background-color: rgba(0, 0, 0, 0.438); */
 }
 .calculator{
